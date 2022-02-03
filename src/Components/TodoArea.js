@@ -6,13 +6,16 @@ import './TodoArea.css'
 
 function TodoArea(){
 
-    // const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+    
+    
+    const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
 
-    // useEffect(() => {
-    //     localStorage.setItem("todos", JSON.stringify(todos))
-    // }, [todos])
 
-    const [todos, setTodos] = useState([])
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
+
+    // const [todos, setTodos] = useState([])
     
     const [inputText, setInputText] = useState('')
 
@@ -81,18 +84,19 @@ function TodoArea(){
             </form>
     
     {todos && 
-    todos.map((todo) => {
-                return (
+        todos.map((todo) => {
+                    return (
 
-                    <TodoItem 
-                    todo={todo}
-                    key={todo.id}
-                    deleteTask={deleteTask}
-                    completeTask={completeTask}
-                    >
+                        <TodoItem 
+                        todo={todo}
+                        key={todo.id}
+                        id={todo.id}
+                        deleteTask={deleteTask}
+                        completeTask={completeTask}
+                        >
 
-                    </TodoItem>
-                )
+                        </TodoItem>
+                    )
             })}
             
            
