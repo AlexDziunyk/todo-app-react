@@ -6,11 +6,13 @@ import './TodoArea.css'
 
 function TodoArea(){
 
-    const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+    // const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
 
-    useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos))
-    }, [todos])
+    // useEffect(() => {
+    //     localStorage.setItem("todos", JSON.stringify(todos))
+    // }, [todos])
+
+    const [todos, setTodos] = useState([])
     
     const [inputText, setInputText] = useState('')
 
