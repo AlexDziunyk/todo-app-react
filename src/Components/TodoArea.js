@@ -8,27 +8,24 @@ import './TodoArea.css'
 
 function TodoArea(){
 
-    
-//     const getLocalItems = () => {
-//     let list = localStorage.getItem("todos")
-
-//     if(list) {
-//         return JSON.parse(localStorage.getItem("todos"))
-//     }
-
-//     else {
-//         return []
-//     }
-// }
-    
-    // const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
 
     const [todos, setTodos] = useState([])
+    
 
-    // useEffect(() => {
-    //     localStorage.setItem("todos", JSON.stringify(todos))
+    useEffect(() => {
+
+        let list = JSON.parse(localStorage.getItem("todos"))
+
+        if(list){
+            setTodos(list)
+        }
+    }, [])
+    
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos))
         
-    // }, [todos])
+    }, [todos])
 
     
     
