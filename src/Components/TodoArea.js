@@ -9,26 +9,26 @@ import './TodoArea.css'
 function TodoArea(){
 
     
-    const getLocalItems = () => {
-        let list = localStorage.getItem("todos")
-    
-        if(list) {
-            return JSON.parse(localStorage.getItem("todos"))
-        }
-    
-        else {
-            return []
-        }
-    }
+//     const getLocalItems = () => {
+//     let list = localStorage.getItem("todos")
+
+//     if(list) {
+//         return JSON.parse(localStorage.getItem("todos"))
+//     }
+
+//     else {
+//         return []
+//     }
+// }
     
     // const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
 
-    const [todos, setTodos] = useState(getLocalItems())
+    const [todos, setTodos] = useState([])
 
-    useEffect(() => {
-        localStorage.setItem("todos", JSON.stringify(todos))
+    // useEffect(() => {
+    //     localStorage.setItem("todos", JSON.stringify(todos))
         
-    }, [todos])
+    // }, [todos])
 
     
     
@@ -104,7 +104,7 @@ function TodoArea(){
 
                         <TodoItem 
                         todo={todo}
-                        
+                        key={todo.id}
                         deleteTask={deleteTask}
                         completeTask={completeTask}
                         >
