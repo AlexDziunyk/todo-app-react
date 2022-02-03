@@ -4,18 +4,32 @@ import { Grid } from '@mui/material';
 import { Container } from '@mui/material';
 import './TodoArea.css'
 
+
+
 function TodoArea(){
 
-    
-    
-    const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+    const getLocalItems = () => {
+        let list = localStorage.getItem("todos")
 
+        if(list) {
+            return JSON.parse(localStorage.getItem("todos"))
+        }
+
+        else {
+            return []
+        }
+    }
+    
+    // const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem("todos")))
+
+    const [todos, setTodos] = useState(getLocalItems())
 
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos))
+        
     }, [todos])
 
-    // const [todos, setTodos] = useState([])
+    
     
     const [inputText, setInputText] = useState('')
 
