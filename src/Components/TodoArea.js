@@ -8,13 +8,14 @@ import './TodoArea.css'
 
 function TodoArea(){
 
+    
     const getLocalItems = () => {
         let list = localStorage.getItem("todos")
-
+    
         if(list) {
             return JSON.parse(localStorage.getItem("todos"))
         }
-
+    
         else {
             return []
         }
@@ -103,8 +104,7 @@ function TodoArea(){
 
                         <TodoItem 
                         todo={todo}
-                        key={todo.id}
-                        id={todo.id}
+                        
                         deleteTask={deleteTask}
                         completeTask={completeTask}
                         >
